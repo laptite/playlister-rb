@@ -1,3 +1,7 @@
+load 'lib/song.rb'
+load 'lib/artist.rb'
+load 'lib/genre.rb'
+
 def test(title, &b)
   begin
     if b

@@ -1,28 +1,27 @@
 class Genre
-  attr_accessor :name, :songs, :artists
+  attr_accessor :name, :songs
 
-  Genres = []
+  All = []
 
-  def initialize (name = "")
-    @artists = []
-    @songs = []
-    @name = name
-    Genres << self if Genres.none?{|genre| genre.name == @name}
+  def initialize
+  #   @songs = []
+    All << self
   end
-
-  def count
-    @songs.size
-  end
-
-#################
-# CLASS METHODS #
-#################
 
   def self.reset_genres
-    Genres.clear
+    All.clear
   end
 
   def self.all
-    Genres
+    All
   end
+
+  def songs
+    @songs ||= []
+  end
+
+  def artists
+    songs.collect{|s| s.artist}.uniq
+  end
+
 end
